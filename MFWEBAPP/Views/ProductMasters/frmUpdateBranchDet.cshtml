@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "frmUpdateBranchDet";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>ADD SITE DETAILS</strong></div>
+            <div class="card-body card-block">
+                <form name="frmApproveIndent" id="frmApproveIndent" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Site Name<b style="color:red">*</b></label>
+                                <input type="text" id="Txtsite" name="Enter Site Name" placeholder="Enter Site Name" class="form-control" maxlength="10" oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')">
+                                <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">State<b style="color:red">*</b></label>
+                                <select name="ddldetails" id="ddlstate" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Region<b style="color:red">*</b></label>
+                                <select name="ddldetails" id="ddlregion" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Division<b style="color:red">*</b></label>
+                                <select name="ddldetails" id="ddldivision" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Area<b style="color:red">*</b></label>
+                                <select name="ddldetails" id="ddlarea" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Type<b style="color:red">*</b></label>
+                                <select name="ddldetails" id="ddltype" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Branch Type<b style="color:red">*</b></label>
+                                <select name="ddldetails" id="ddlbranchtype" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+
+                </form>
+
+                <div class="text-right" id="confirmbutton" >
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">CONFIRM</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+@section Scripts {
+    <script src="~/clientapp/addsite/sitedetails.js"></script>
+}

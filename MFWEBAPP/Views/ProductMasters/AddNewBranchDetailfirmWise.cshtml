@@ -1,0 +1,343 @@
+﻿@{
+    ViewData["Title"] = "AddNewBranchDetailfirmWise";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong> ADD BRANCH</strong></div>
+            <div class="card-body card-block">
+                <form name="frmAddBranch" id="frmAddBranch" method="post">
+
+                    <div class="row form-group">
+
+
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Site Name<b style="color:red">*</b></label>
+                                <select name="ddlsite" id="ddlsite" class="form-control">
+                                    <option value="0">--Select Site--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Branch Name<b style="color:red">*</b></label>
+                                <input type="text" id="TxtBranchName" name="Branch Name" class="form-control" placeholder="Enter Branch Name">
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Branch Address<b style="color:red">*</b></label>
+                                <input type="text" id="TxtBranchAddress" name="Branch Address" class="form-control" placeholder="Enter Branch Address">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Land Phone</label>
+                                <input type="text" id="TxtLandPhone" name="Land Phone" class="form-control" placeholder="Enter Land Phone Number" maxlength="10"
+                                       pattern="[0-9]{10}"
+                                       title="Please enter a 10-digit land phone number"
+                                       oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Mobile<b style="color:red">*</b></label>
+                                <input type="text" id="TxtMobile" name="Mobile" class="form-control" placeholder="Enter Mobile Number" maxlength="10" pattern="[0-9]{10}"
+                                       title="Please enter a valid 10-digit mobile number"
+                                       oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div>
+                        <hr>
+                        <h4 class="text-primary font-weight-bold ">
+
+                            Location Details
+                        </h4>
+                    </div>
+                    <br />
+                    <div class="row form-group">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">State<b style="color:red">*</b></label>
+                                <select name="ddlState" id="ddlState" class="form-control">
+                                    <option value="0">--Select State--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">District<b style="color:red">*</b></label>
+                                <select name="ddlDistrict" id="ddlDistrict" class="form-control">
+                                    <option value="0">--Select District--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Post<b style="color:red">*</b></label>
+                                <select name="ddlPost" id="ddlPost" class="form-control">
+                                    <option value="0">--Select Post--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Pincode</label>
+                                <input type="text" id="TxtPinCode" name="Pincode" class="form-control" placeholder="000000" maxlength="10" disabled="disabled">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Zonal<b style="color:red">*</b></label>
+                                <select name="ddlZonal" id="ddlZonal" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Region<b style="color:red">*</b></label>
+                                <select name="ddlRegion" id="ddlRegion" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Division<b style="color:red">*</b></label>
+                                <select name="ddlDivision" id="ddlDivision" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Area<b style="color:red">*</b></label>
+                                <select name="ddlArea" id="ddlArea" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Local Body<b style="color:red">*</b></label>
+                                <select name="ddlLocalBody" id="ddlLocalBody" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Local Body Name<b style="color:red">*</b></label>
+                                <input type="text" id="TxtlocalBodyName" name="Local Body Name" class="form-control" placeholder="Enter Local Body Name">
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row form-group">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Total Square Feet</label>
+                                <input type="text" id="TxtSqrFeet" name="Total square feet" class="form-control" placeholder="Enter Total Square Feet" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="text-align: right;">
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Rent Per Square Feet</label>
+                                <input type="text" id="TxtRentSqrtFeet" name="Rent Per Square Feet" class="form-control" placeholder="Enter Rent Per Square Feet" maxlength="6" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="text-align: right;">
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Advance Rent</label>
+                                <input type="text" id="TxtAdvanceRent" name="Advance Rent" class="form-control" placeholder="Enter Advance Rent" maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="text-align: right;">
+
+                            </div>
+
+
+                        </div>
+                        @*  <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Agreement Date</label>
+                                <input type="text" id="TxtAgrimentdt" name="Agreement Date" class="form-control" placeholder="Enter Agreement Date" maxlength="10" >
+
+                            </div>
+
+
+                        </div> *@
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container5">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Agreement Date</label>
+                                <input type="text" id="TxtAgrimentdt" name="Agreement Date" class="form-control" placeholder="DD/MM/YYYY" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <hr>
+                        <h4 class="text-primary font-weight-bold ">
+
+                            Branch Details
+                        </h4>
+                    </div>
+                    <br />
+
+                    <div class="row form-group">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">BH Employ Code<b style="color:red">*</b></label>
+                                <input type="text" id="TxtBhEmpCode" name="BH Employ Code" class="form-control" placeholder="Enter BH Employ Code" maxlength="6"
+                                       oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">BH Name</label>
+                                <input type="text" id="TxtBhName" name="BH Name" class="form-control" placeholder="BH Name" maxlength="10" disabled="disabled">
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Branch Holiday</label>
+                                <select name="Branch Hodiday" id="ddlbrancHoliday" class="form-control">
+                                    <option value="0">--Select--</option>
+                                    <option value="1">Sunday</option>
+                                    <option value="2">Monday</option>
+                                    <option value="3">Tuesday</option>
+                                    <option value="4">Wednesday</option>
+                                    <option value="5">Thursday</option>
+                                    <option value="6">Friday</option>
+                                    <option value="7">Saturday</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Branch Time(<span style="color:red">24hr</span>)</label>
+                                <select name="Branch Time(24hr)" id="ddlbranchTime" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Branch Type</label>
+                                <input type="text" id="TxtBrancType" name="Branch Type" class="form-control" placeholder="Branch Type" maxlength="10" disabled="disabled">
+
+                            </div>
+                            @*   <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Branch Type<b style="color:red">*</b></label>
+                                <input type="text" id="TxtBranchType" name="Branch Type" class="form-control" placeholder="Branch Type" maxlength="10" disabled="disabled">
+
+                            </div>
+
+                            
+                        </div> *@
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Firm<b style="color:red">*</b></label>
+                                <select name="Firm" id="ddlFirm" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnSubmit">SUBMIT</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+@section Scripts {
+
+    <script src="~/clientapp/AddBranch/AddNewBranch.js"></script>
+}

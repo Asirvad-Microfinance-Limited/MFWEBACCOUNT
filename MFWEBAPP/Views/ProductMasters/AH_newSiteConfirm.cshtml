@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "AH_newSiteConfirm";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>NEW SITE CONFIRMATION</strong></div>
+            <div class="card-body card-block">
+                <form name="frmApproveIndent" id="frmApproveIndent" method="post">
+
+                    <div class="row form-group">
+
+                       
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Select Site<b style="color:red">*</b></label>
+                                <select name="ddlsite" id="ddlsite" class="form-control">
+                                    <option value="0">--Select Site--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Branch Type</label>
+                                <input type="text" id="TxtbranchType" name="Branch Type"  class="form-control" placeholder="Branch Type" maxlength="10" disabled="disabled">
+                              @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+
+                        </div>
+
+                           <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Square Feet<b style="color:red">*</b></label>
+                                <input type="text" id="TxtSquarefeet" name="Square feet" class="form-control" placeholder="Enter Square Feet" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                              @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Monthly Rent<b style="color:red">*</b></label>
+                                <input type="text" id="TxtMonthlyrent" name="Monthly rent" class="form-control" placeholder="Enter Monthly Rent" maxlength="10" pattern="^\d+(\.\d{1,2})?$"
+                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '') .replace(/(\..*)\./g, '$1') .replace(/(\.\d{2}).*/g, '$1')">
+                                @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Advance Amount<b style="color:red">*</b></label>
+                                <input type="text" id="TxtAdvAmt" name="Advance Amount" class="form-control" placeholder="Enter Advance Amount" maxlength="10" pattern="^\d+(\.\d{1,2})?$"
+                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1') .replace(/(\.\d{2}).*/g, '$1')">
+                                @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Distance From Main Road( KM)<b style="color:red">*</b></label>
+                                <input type="text" id="TxtDistance" name="Distance From Main Road( KM)" class="form-control" placeholder="Enter Distance From Main Road( KM)" maxlength="10" pattern="^\d+(\.\d{1,2})?$"
+                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '') .replace(/(\..*)\./g, '$1') .replace(/(\.\d{2}).*/g, '$1')">
+                                @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Upload Photo<b style="color:red">*</b></label>
+                                <input type="file" id="imgUpload" name="Upload Photos" class="form-control">
+                                @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+                        </div>
+                       
+                    </div>
+
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">RECOMMEND</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<style>
+
+
+    .action-btn {
+        width: 120px;
+        margin-left: 3px;
+    }
+</style>
+
+@section Scripts {
+
+    <script src="~/clientapp/siteconfirmation/ah_site_confirmation.js"></script>
+}
+

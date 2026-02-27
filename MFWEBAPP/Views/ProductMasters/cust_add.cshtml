@@ -1,0 +1,299 @@
+﻿@{
+    ViewData["Title"] = "customer_add";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>  ADD NEW CUSTOMER   </strong></div>
+            <div class="card-body card-block">
+                <form name="frmCustomerAdd" id="frmCustomerAdd" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Customer No</label>
+                                <input type="text" id="custno" name="Customer No" placeholder="Enter Customer No" class="form-control" maxlength="10" readonly>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">
+                                    Customer Name <b style="color:red">*</b>
+                                </label>
+
+                                <div class="d-flex align-items-center gap-2">
+                                    <select class="form-control" id="gen" name="title" style="width: 70px;">
+                                        <option value="0">Mr</option>
+                                        <option value="1">Mrs</option>
+                                        <option value="2">Miss</option>
+                                    </select>
+
+                                    <input type="text" id="custname" name="customer_name" placeholder="Enter Customer Name" class="form-control" maxlength="10">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Mobile No<b style="color:red">*</b></label>
+                                <input type="text" id="cmobile" name="Mobile No" placeholder="Enter Mobile No" class="form-control" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Phone No</label>
+                                <input type="text" id="cphone" name="Phone No" placeholder="Enter Phone No" class="form-control" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Email ID</label>
+                                <input type="email" id="cemail" name="Email" placeholder="Enter Email" maxlength="30" class="form-control" pattern="[a-z0-9._%+-]+&#64;[a-z0-9.-]+\.[a-z]{2,}$">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container6">
+                            <div class="form-group">
+                                <label for="datepicker" class=" form-control-label mb-1">DOB <b style="color:red">*</b></label>
+                                <input class="form-control datepicker " id="cdob" name="cudate" placeholder="DD/MM/YYYY" type="text" maxlength="10" />
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Father/Husband<b style="color:red">*</b></label>
+                                <input type="text" id="forhname" name="Father/Husband" placeholder="Enter Father/Husband Name" class="form-control" maxlength="10">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Address<b style="color:red">*</b></label>
+                                <input type="text" id="caddress" name="Address" placeholder="Enter Address" class="form-control" maxlength="50">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">PAN<b style="color:red">*</b></label>
+                                <input type="text" id="cpan" name="pan" placeholder="Enter PAN" class="form-control" maxlength="10" style="text-transform: uppercase;">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Passport No</label>
+                                <input type="text" id="cpassport" name="passport no" placeholder="Enter Passport No" class="form-control" maxlength="50">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="ccountry" class="control-label mb-1">Country</label>
+                                <select name="country" id="ccountry" class="form-control">
+                                    <option value="0">--Select Country--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cstate" class="control-label mb-1">State<b style="color:red">*</b></label>
+                                <select name="state" id="cstate" class="form-control">
+                                    <option value="0">--SELECT STATE--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cdistrict" class="control-label mb-1">District<b style="color:red">*</b></label>
+                                <select name="district" id="cdistrict" class="form-control">
+                                    <option value="0">--SELECT DISTRICT--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cpost" class="control-label mb-1">Post<b style="color:red">*</b></label>
+                                <select name="post" id="cpost" class="form-control">
+                                    <option value="0">--SELECT POST--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cpincode" class="control-label mb-1">Pincode<b style="color:red">*</b></label>
+                                <input type="text" id="cpincode" name="Pincode" placeholder="Pincode" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="clocality" class="control-label mb-1">Locality<b style="color:red">*</b></label>
+                                <input type="text" id="clocality" name="Locality" placeholder="Locality" class="form-control" maxlength="50">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Customer Status<b style="color:red">*</b></label>
+                                <select name="customerstatus" id="cstatus" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Occupation<b style="color:red">*</b></label>
+                                <select name="occupation" id="coccupation" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <hr>
+                        <h4 class="text-primary font-weight-bold ">
+
+                            Identity Details
+                        </h4>
+                    </div>
+                    <br />
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">ID Type<b style="color:red">*</b></label>
+                                <select name="idtype" id="cidtype" class="form-control">
+                                    <option value="0">--SELECT ID TYPE--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">ID Number<b style="color:red">*</b></label>
+                                <input type="text" id="cidno" name="ID No" placeholder="Enter ID Number" class="form-control" maxlength="15">
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container7">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Date Of Issue<b style="color:red">*</b></label>
+                                <input type="text" id="cdateofissue" name="dateofissue" placeholder="DD/MM/YYYY" class="form-control" maxlength="10">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container8">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Expiry Date</label>
+                                <input type="text" id="cexpirydate" name="expirydate" placeholder="DD/MM/YYYY" class="form-control" maxlength="10">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Place Of Issue</label>
+                                <input type="text" id="cplace" name="Placeofissue" placeholder="Place Of Issue" class="form-control" maxlength="50">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Description</label>
+                                <input type="text" id="cdescription" name="Description" placeholder="Enter Description" class="form-control" maxlength="50">
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">CONFIRM</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+@section Scripts {
+    <script src="~/clientapp/addcustomer/customeradd.js"></script>
+}
