@@ -1180,7 +1180,9 @@ jQuery('#BtnSubmit').click(function () {
     var state = jQuery("#ddlState").val();
     var district = jQuery("#ddlDistrict").val();
     var post = jQuery("#ddlPost").val();
-    var pin = jQuery("#TxtPinCode").val();
+    var post_values = post.split('@');
+
+    var pin = post_values[1];
     var Zone_id = jQuery("#ddlZonal").val();
     var reg_id = jQuery("#ddlRegion").val();
     var div_id = jQuery("#ddlDivision").val();
@@ -1199,6 +1201,8 @@ jQuery('#BtnSubmit').click(function () {
     var Firm = jQuery("#ddlFirm").val();
     // var id = '';
 
+    
+    
     if (site_id == 0) {
         swal("Please Select Site !!!....", "", "warning");
         return false;

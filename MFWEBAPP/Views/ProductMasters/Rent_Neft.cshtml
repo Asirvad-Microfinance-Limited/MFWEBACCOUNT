@@ -1,0 +1,163 @@
+﻿@{
+    ViewData["Title"] = "NEFT_Details";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>  NEFT DETAILS (RENT & BROKERAGE)   </strong></div>
+            <div class="card-body card-block">
+                <form name="frmAgreementUpload" id="frmAgreementUpload" method="post">
+
+                    <div class="row form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Select Customer<b style="color:red">*</b></label>
+                                <select name="custname" id="custname" class="form-control">
+                                    <option value="">--SELECT CUSTOMER--</option>
+                                </select>
+                            </div>
+                            
+
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-customer" id="BtnViewCustomer">View Customer Details</button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:20px;">
+                            <div class="card" id="maincard" style="display:none;">
+                                <div class="card-body" style="background-color:#fff !important;">
+                                    <div class="table-responsive">
+                                        <div id="divagreementdetailstable"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cstate" class="control-label mb-1">State<b style="color:red">*</b></label>
+                                <select name="state" id="cstate" class="form-control">
+                                    <option value="0">--SELECT STATE--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cdistrict" class="control-label mb-1">District<b style="color:red">*</b></label>
+                                <select name="district" id="cdistrict" class="form-control">
+                                    <option value="0">--SELECT DISTRICT--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cbank" class="control-label mb-1">Bank<b style="color:red">*</b></label>
+                                <select name="bank" id="cbank" class="form-control">
+                                    <option value="0">--SELECT BANK--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cbranch" class="control-label mb-1">Branch<b style="color:red">*</b></label>
+                                <select name="branch" id="cbranch" class="form-control">
+                                    <option value="0">--SELECT BRANCH--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="ifsccode" class="control-label mb-1">IFSC Code<b style="color:red">*</b></label>
+                                <input type="text" id="ifsccode" name="ifsccode" placeholder="IFSC Code" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="caccount" class="control-label mb-1">Account<b style="color:red">*</b></label>
+                                <select name="account" id="caccount" class="form-control">
+                                    <option value="0">--SELECT ACCOUNT--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="acnumber" class="control-label mb-1">Account No<b style="color:red">*</b></label>
+                                <input type="text" id="acnumber" name="Account No" placeholder="Enter Account No" class="form-control" maxlength="16" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Mobile No<b style="color:red">*</b></label>
+                                <input type="text" id="cmobile" name="Mobile No" placeholder="Enter Mobile No" class="form-control" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="customername" class="control-label mb-1">Customer Name(in Bank Account)<b style="color:red">*</b></label>
+                                <input type="text" id="customernamebank" name="customername" placeholder="Enter Customer Name(in Bank Account)" class="form-control" maxlength="50" onkeyup="this.value=this.value.toUpperCase()">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">CONFIRM</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+
+    .btn-customer{
+        color:black;
+        border: 1px solid #ccc;
+        margin-top:23px;
+        /* width: 590px; */
+    }
+</style>
+
+@section Scripts {
+<script src="~/clientapp/neftrentdtl/rentneftdtl.js"></script>
+}

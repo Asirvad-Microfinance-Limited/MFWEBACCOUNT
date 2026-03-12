@@ -1,0 +1,443 @@
+﻿
+@{
+    ViewData["Title"] = "New_Agreement_Detail";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>NEW AGREEMENT DETAILS</strong></div>
+            <div class="card-body card-block">
+                <form name="frmAddAgreement" id="frmAddAgreement" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="flat_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Branch</label>
+                                <input type="text" id="Txtbranch" name="Branch Name" placeholder="Branche Name" class="form-control" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="flat_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Category</label>
+                                <input type="text" id="Txtcategory" name="Category" placeholder="Category" class="form-control" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="flat_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Building Name</label>
+                                <input type="text" id="Txtbuilding" name="Building Name" placeholder="Building Name" class="form-control" readonly>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="div_customer">
+                            <div class="form-group">
+
+                                <hr />
+                                <div class="radio-toolbar">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="customer_option" id="radio_cust_id" value="1" checked>   Cust ID
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="customer_option" id="radio_cust_name" value="2">   Cust Name
+                                    </label>
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
+
+                        <div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="custid_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1" id="customer_id">Enter Customer ID</label>
+                                <input type="text" id="Txtcustid" name="Customer ID" class="form-control" placeholder="Enter Customer ID">
+
+                                <label for="cc-payment" class="control-label mb-1" id="customer_name" style="display:none;">Enter Customer Name</label>
+                                <div class="d-flex align-items-center gap-2" id="customer_name" style="display:none;">
+                                    <select class="form-control" id="gen" name="title" style="width: 70px;display:none;">
+                                        <option value="0">Mr</option>
+                                        <option value="1">Mrs</option>
+                                        <option value="2">Miss</option>
+                                    </select>
+
+                                    <input type="text" id="customername" name="customer_name" placeholder="Enter Customer Name" class="form-control" maxlength="10" style="display:none;">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-customer" id="BtnSearchCustomer">Search</button>
+                            </div>
+                        </div>
+
+                        <br /><br /><br />
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:22px;">
+                            <div class="card col-lg-12 col-md-12 col-sm-12 col-xs-12" id="maincard" style="display:none;">
+                                <div class="card-body" style="background-color:#fff !important;">
+                                    <div class="table-responsive">
+                                        <div id="divcustomerdetailstable"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="flat_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1"> Customer ID</label>
+                                <input type="text" id="Txtcustid_selected" name="Customer ID" placeholder="Customer ID" class="form-control" readonly>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="br_name">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Owner Name</label>
+                                <input type="text" id="TxtownerName" name="Owner Name" placeholder="Owner Name" class="form-control" readonly>
+
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="col-md-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                            </div>
+                        </div>
+
+                        <div  id="power_of_atrony"  style="display:none;">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="form-check" style="margin-top: 35px;">
+                                    <input type="checkbox" class="form-check-input" id="chkpowerofattorney" name="Agreement">
+                                    <label class="form-check-label" for="chkpowerofattorney">
+                                        Tick Whether Power Of Attorney
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="flat_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1"> Customer ID</label>
+                                <input type="text" id="Txtcustid_powerofattny" name="Customer ID" placeholder="Customer ID" class="form-control" readonly>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="br_name">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Power of Attorney</label>
+                                <input type="text" id="Txtpowerofattorney" name="Power of Attorney" placeholder="Power of Attorney" class="form-control" readonly>
+
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="col-md-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="flat_div">
+                        <div class="form-group">
+                        </div>
+                    </div>
+
+                    <div>
+                        <hr>
+                        <h4 class="text-primary font-weight-bold">
+
+                            Rent Details
+                        </h4>
+                    </div>
+
+                    <br />
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Monthly Rent<b style="color:red">*</b></label>
+
+                                <input type="text" id="TxttotalMonthRent" name="Monthly Rent" placeholder="0" class="form-control" style="text-align: right;" oninput="this.value = this.value.replace(/[^0-9]/g, '');" maxlength="6" onkeyup="totalRent(this);">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Security Deposit<b style="color:red">*</b></label>
+                                <input type="text" id="TxtSequrityDeposit" name="Security Deposit" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Maintenence Charge</label>
+                                <input type="text" id="TxtMaintenenceCharge" name="Maintenence Charge" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" onkeyup="totalRent(this);" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Water Bill</label>
+                                <input type="text" id="TxtWaterBill" name="Water Bill" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');" onkeyup="totalRent(this);">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="form-check" style="margin-top: 35px;">
+                                    <input type="checkbox" class="form-check-input" id="chkServiceTax" name="Agreement" onchange="totalRent(this);">
+                                    <label class="form-check-label" for="chkServiceTax">
+                                        Tick Whether Service Tax Applicable
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <hr />
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Service Tax</label>
+                                <input type="text" id="TxtServiceTax" name="Service Tax" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');" onkeyup="totalRent(this);" readonly>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Total Monthly Rent</label>
+                                <input type="text" id="TxtTotalMonthlyRent" name="Total Monthly Rent" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">TDS Category<b style="color:red">*</b></label>
+                                <select name="tdscategory" id="tdscategory" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">TDS Amount</label>
+                                <input type="text" id="TxtTDSAmount" name="TDS Amount" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Net Monthly Payable Rent</label>
+                                <input type="text" id="TxtNetPayableRent" name="Net Monthly Payable Rent" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                        </div>
+
+                   @*      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-customer" id="BtnAddDetails">ADD</button>
+                            </div>
+                        </div>
+ *@
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:20px;">
+                            <div class="card" id="maincard" style="display:none;">
+                                <div class="card-body" style="background-color:#fff !important;">
+                                    <div class="table-responsive">
+                                        <div id="divrentcustdetailstable"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row form-group">
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Assigned Branch for DD taken for advance payment</label>
+                                <select name="txtdd" id="TxtDD" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Rough Draft Signed By Building owner</label>
+                                <input type="file" id="imgUpload" name="Upload Photos" class="form-control">
+                                @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Legal Approval Copy</label>
+                                <input type="file" id="legalApprv" name="Legal Approval Copy" class="form-control">
+                                @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Bank Passbook Copy</label>
+                                <input type="file" id="bankPass" name="Upload Photos" class="form-control">
+                                @*   <label id="deliveryAddress-error" class="error" for="deliveryAddress"></label> *@
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="form-check" style="margin-top: 35px;">
+                                    <input type="checkbox" class="form-check-input" id="chkRentPaidAdvance" name="Agreement">
+                                    <label class="form-check-label" for="chkRentPaidAdvance">
+                                        Tick Whether Rent Paid in Advance in All Months
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm1">Confirm</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+
+
+    /* Radio/Checkbox alignment */
+    .radio-inline, .form-check-label {
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    .action-btn {
+        min-width: 140px;
+        font-weight: 600;
+        padding: 8px 20px;
+        transition: all 0.3s;
+    }
+
+    /* .radio-toolbar {
+                      background: #f8f9fa;
+                      padding: 15px;
+                      border-radius: 6px;
+                      border: 1px solid #eee;
+                      text-align:center;
+                  } */
+
+    .radio-toolbar label {
+        display: inline-block;
+        background-color: #f0f0f0;
+        padding: 8px 20px;
+        font-family: sans-serif;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 15px; /* This creates the gap */
+    }
+
+    .radio-toolbar input[type="radio"]:checked + label {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+
+    hr {
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+    }
+
+    .btn-customer {
+        color: black;
+        border: 1px solid #ccc;
+        margin-top: 23px;
+        width: 200px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+@section Scripts {
+    <script src="~/clientapp/addagreement/newagreementdetails.js"></script>
+
+}

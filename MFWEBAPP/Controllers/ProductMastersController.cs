@@ -71,5 +71,69 @@ namespace MFWEBAPP.Controllers
         {
             return View();
         }
+
+
+        [HttpGet("ADD_NEW_AGREEMENT")]
+        public IActionResult ADD_NEW_AGREEMENT()
+        {
+            return View();
+        }
+
+
+        [HttpGet("AGREEMENT_UPDATION")]
+        public IActionResult AGREEMENT_UPDATION()
+        {
+            return View();
+        }
+
+        [HttpGet("AGREEMENT_APPROVAL_GM")]
+        public IActionResult AGREEMENT_APPROVAL_GM()
+        {
+            return View();
+        }
+
+        [HttpGet("Rent_neft_verification")]
+        public IActionResult Rent_neft_verification()
+        {
+            return View();
+        }
+
+        [HttpGet("AdvancePayment")]
+        public IActionResult AdvancePayment()
+        {
+            return View();
+        }
+
+
+        [HttpGet("New_Agreement_Detail")]
+        public IActionResult New_Agreement_Detail()
+        {
+            return View();
+        }
+
+        [HttpGet("Agreement_upload")]
+        public IActionResult Agreement_upload()
+        {
+            return View();
+        }
+
+        [HttpGet("Agreement_approval")]
+        public IActionResult Agreement_approval()
+        {
+            return View();
+        }
+
+        [HttpGet("Rent_Neft")]
+        public IActionResult Rent_Neft()
+        {
+            return View();
+        }
+
+        [HttpGet("update_new_branchdtll")]
+        public IActionResult update_new_branchdtll()
+        {
+            return View();
+        }
+
     }
 }

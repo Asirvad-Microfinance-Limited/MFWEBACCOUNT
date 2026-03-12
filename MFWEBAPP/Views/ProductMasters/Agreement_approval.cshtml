@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Agreement_approval";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong> APPROVE AGREEMENT </strong></div>
+            <div class="card-body card-block">
+                <form name="frmAgreementUpload" id="frmAgreementUpload" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="agreementname" class="control-label mb-1">Select Agreement</label>
+                                <select name="agreementname" id="agreementname" class="form-control">
+                                    <option value="">--SELECT AGREEMENT--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="rentperiod" class="control-label mb-1">Rent Period<span style="color:red">(Month)</span></label>
+                                <input type="text" id="rentperiod" name="Rentperiod" placeholder="Rent Period" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="enhncprd" class="control-label mb-1">Enhancement Period<span style="color:red">(Month)</span></label>
+                                <input type="text" id="enhncprd" name="enhncprd" placeholder="Enhancement Period" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:20px;" >
+                            <div class="card" id="maincard" style="display:none;">
+                                <div class="card-body" style="background-color:#fff !important;">
+                                    <div class="table-responsive">
+                                        <div id="divagreementdetailstable"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">APPROVE</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+@section Scripts {
+<script src="~/clientapp/agreementapprove/approve_agreement.js"></script>
+}

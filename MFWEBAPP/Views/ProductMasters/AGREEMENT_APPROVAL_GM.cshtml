@@ -1,0 +1,193 @@
+﻿@{
+    ViewData["Title"] = "AGREEMENT_APPROVAL_GM";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>AGREEMENT APPROVAL-ACCOUNTS</strong></div>
+            <div class="card-body card-block">
+                <form name="frmAddAgreement" id="frmAddAgreement" method="post">
+
+                    <div class="row form-group">
+                        <div class="col-12">
+                            <div class="radio-selection-box">
+                                <label class="radio-inline mr-3">
+                                    <input type="radio" name="approvalType" id="rbApprovalList" value="1" checked>
+                                    <span class="ml-1">Approval List</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="approvalType" id="rbApprovalCMD" value="2">
+                                    <span class="ml-1">Approval List Of CMD</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Select Agreement<b style="color:red">*</b></label>
+                                <select name="ddlbranch" id="ddlAgreementh" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Rent Period (Months)</label>
+                                <input type="text" id="TxtrentPeriod" name="Rent Period" class="form-control" placeholder="Rent Period In Months..." disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Enhancement (Months)</label>
+                                <input type="text" id="TxtEnhancePrd" name="Enhancement Period" placeholder="Enhancement Period In Months..." class="form-control" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Agreement Date</label>
+                                <input type="text" id="TxtAgrmtDt" name="Agreement Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Effective Date (1st Rent)</label>
+                                <input type="text" id="TxtEffDate" name="Effective Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container5">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Agreement End Date</label>
+                                <input type="text" id="TxtAggEndDate" name="Agreement End Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container4">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Next Enhancement Date</label>
+                                <input type="text" id="TxtNxtEnhancement" name="Next Enhancement Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container3">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Inauguration Date</label>
+                                <input type="text" id="TxtInagurationDt" name="Inauguration Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container2">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Work Completion Date</label>
+                                <input type="text" id="TxtCompletionDt" name="Work Completion Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <div class="professional-border-box">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container1">
+                                        <div class="form-group">
+                                            <label class="control-label mb-1">Effective Date (If Any Change)</label>
+                                            <input type="text" id="TxtEffectiveDtIfAny" name="EnterEffective Date" class="form-control" placeholder="DD/MM/YYYY" onkeypress="return false" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label mb-1">New Agreement End Date</label>
+                                            <input type="text" id="TxtAggEndDate2" name="Agreement End Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label mb-1">New Next Enhancement Date</label>
+                                            <input type="text" id="TxtNxtEnhancement2" name="Next Enhancement Date" class="form-control" placeholder="DD/MM/YYYY" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">Approve</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    /* Radio Button Styling */
+    .radio-selection-box {
+        background-color: #f1f4f6;
+        padding: 10px 15px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .radio-inline {
+        cursor: pointer;
+        font-weight: 600;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .ml-1 {
+        margin-left: 5px;
+    }
+
+    .mr-3 {
+        margin-right: 20px;
+    }
+
+    /* Professional Bordered Box */
+    .professional-border-box {
+        border: 1px solid #ced4da;
+        background-color: #f1f4f6;
+        /* #f8f9fa; */
+        padding: 20px 15px 10px 15px;
+        border-radius: 4px;
+        position: relative;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+@section Scripts 
+{
+
+    <script src="~/clientapp/addagreement/agreement_approval_accounts.js"></script>
+
+}

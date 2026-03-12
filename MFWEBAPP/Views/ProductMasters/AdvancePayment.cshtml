@@ -1,0 +1,251 @@
+﻿@{
+    ViewData["Title"] = "AdvancePayment";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>RENT ADVANCE PAYMENT</strong></div>
+            <div class="card-body card-block">
+                <form name="frmAddAgreement" id="frmAddAgreement" method="post">
+
+                    <div class="row form-group">
+                        <div class="col-12">
+                            <div class="radio-selection-box">
+                                <label class="radio-inline mr-3">
+                                    <input type="radio" name="Advance" id="AdvncNumber" value="1">
+                                    <span class="ml-1">Advance Amount</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="Advance" id="AdditinalAdvance" value="2">
+                                    <span class="ml-1">Additional Advance Amount</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Branch<b style="color:red">*</b></label>
+                                <select name="ddlbranch" id="ddlbranch" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">Category<b style="color:red">*</b></label>
+                            <select name="ddlCategory" id="ddlCategory" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">Owner<b style="color:red">*</b></label>
+                            <select name="ddlOwner" id="ddlOwner" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Security Deposit</label>
+
+                                <input type="text" id="TxtSeqDeposit" name="Security Deposit" placeholder="Security Deposit" class="form-control" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Remarks</label>
+                                <textarea id="TxtRemarks" name="Remarks" placeholder="Enter Remarks..." class="form-control" rows="3" ></textarea>
+                            </div>
+                        </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="Advance_div" style="display:none; padding-top:38px;">
+                                <div class="form-group">
+                                    <label for="cc-payment" class="control-label mb-1">Enter Advance Amount<b style="color:red">*</b></label>
+                                <input type="text" id="TxtAdvanceAmt" name="Security Deposit" class="form-control" maxlength="10" placeholder="Enter Advance Amount..." pattern="^\d+(\.\d{1,2})?$"
+                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1') .replace(/(\.\d{2}).*/g, '$1')">
+
+                                </div>
+                            </div>
+
+
+
+                    </div>
+                  @*   <div class="row form-group" id="Advance_div" style="display:none;">
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">Enter Advance Amount<b style="color:red">*</b></label>
+                                <input type="text" id="TxtAdvanceAmt" name="Security Deposit" class="form-control" placeholder="Enter Advance Amount...">
+
+                        </div>
+                    </div>
+                    </div>  *@
+                
+                    <h4 class="text-primary font-weight-bold ">
+                        Payment Details
+                    </h4>
+
+                  
+                    <div class="row form-group" style="padding-top:5px;">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Payment Mode<b style="color:red">*</b></label>
+                                <select name="ddlpaymode" id="ddlpaymode" class="form-control">
+                                    <option value="0">--Select--</option>
+                                    <option value="N">IMPS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="payment_branch_div" style="display:none;">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Select Branch<b style="color:red">*</b></label>
+                                <select name="ddlbranch" id="ddlbranch2" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+
+                 
+
+                       <div class="professional-border-box" id="account_div" style="display:none;">
+                        <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Customer Name</label>
+
+                                <input type="text" id="TxtCustName" name="Customer Name" placeholder="Customer Name" class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Account No</label>
+
+                                    <input type="text" id="TxtAccNo" name="Account No" placeholder="Account No" class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Bank</label>
+
+                                    <input type="text" id="TxtBank" name="Bank" placeholder="Bank" class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Branch</label>
+
+                                <input type="text" id="TxtBranch" name="Branch" placeholder="Branch" class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">IFSC Code</label>
+
+                                    <input type="text" id="TxtIFSC" name="IFSC Code" placeholder="IFSC Code" class="form-control" disabled>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <hr class="mt-4 mb-4">
+
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">Approve</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    #TxtSeqDeposit {
+        text-align: right;
+    }
+
+        /* Align the placeholder text to the left */
+        #TxtSeqDeposit::placeholder {
+            text-align: left;
+        }
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    #TxtAdvanceAmt {
+        text-align: right;
+    }
+
+        /* Align the placeholder text to the left */
+        #TxtAdvanceAmt::placeholder {
+            text-align: left;
+        }
+
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    /* Radio Button Styling */
+    .radio-selection-box {
+        background-color: #f1f4f6;
+        padding: 10px 15px;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .radio-inline {
+        cursor: pointer;
+        font-weight: 600;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .ml-1 {
+        margin-left: 5px;
+    }
+
+    .mr-3 {
+        margin-right: 20px;
+    }
+
+    /* Professional Bordered Box */
+    .professional-border-box {
+        border: 1px solid #ced4da;
+        background-color: #f1f4f6;
+        /* #f8f9fa; */
+        padding: 20px 15px 10px 15px;
+        border-radius: 4px;
+        position: relative;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+
+@section Scripts
+{
+    <script src="~/clientapp/advanvepayment/advance_payment.js"></script>
+
+}

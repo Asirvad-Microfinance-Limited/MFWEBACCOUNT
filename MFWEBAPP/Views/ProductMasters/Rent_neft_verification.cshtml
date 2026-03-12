@@ -1,0 +1,310 @@
+﻿@{
+    ViewData["Title"] = "Rent_neft_verification";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>
+                    Rent Neft Customer Verification
+                </strong>
+            </div>
+            <div class="card-body card-block">
+                <form name="frmNeftVerification" id="frmAddAgreement" method="post">
+
+                    
+                    <div class="row form-group">
+                        
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Select Customer<b style="color:red">*</b></label>
+
+                                <select name="ddlCustomer" id="ddlCustomer" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12"  style="margin-top:23px;">
+                            <div class="form-group">
+                                <button type="button" id="view_customer" class="btn btn-secondary view_button"> View Customer Details</button>
+                            
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row form-group" style="padding-top:18px;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card" id="maincard" style="display:none;">
+                            <div class="card-body" style="background-color:#fff !important;">
+                                <div class="table-responsive">
+                                    <div id="divagreementdetailstable">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                        <div class="card "  id="edit_div" style="display:none;">
+                        <div class="row form-group" style="padding-left:100px;padding-right:100px;padding-top:19px;padding-bottom:10px;">
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">State <b style="color:red">*</b></label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                              <input type="text" id="TxtState" name="State" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">District <b style="color:red">*</b></label>
+                           </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" id="TxtDistrict" name="District" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Bank <b style="color:red">*</b></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" id="TxtBank" name="Bank" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Branch <b style="color:red">*</b></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" id="TxtBranch" name="Branch" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">IFSC code<b style="color:red">*</b></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" id="TxtIFSC" name="IFSC code" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Account<b style="color:red">*</b></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                               <input type="text" id="TxtAccount" name="Account" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Account Number<b style="color:red">*</b></label>
+                           </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" id="TxtAccountNumber" name="AccountNumber" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Mobile Number<b style="color:red">*</b></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" id="TxtMobile" name="Mobile number" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">Account Holder Name<b style="color:red">*</b></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" id="TxtAccountHolder" name="Account Holder Name" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </form>
+
+                <div class="text-right" id="confirmbutton" style="display:none;padding-top:15px;">
+                   
+                        <button type="button" class="btn action-btn btn-confirm" id="BtnApprove">CONFIRM</button>
+                        <button type="button" class="btn action-btn btn-modify" id="BtnEdit">EDIT</button>
+                        <button type="button" class="btn action-btn btn-deny" id="btnReject">REJECT</button>
+                        <button type="button" class="btn action-btn btn-exit" id="btn_exit">EXIT</button>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Container styling */
+    .button-container {
+        text-align: right;
+        padding: 15px;
+        background-color: #f8f9fa; /* Optional: light background to see button contrast */
+    }
+
+    /* Base button style */
+    .action-btn {
+        width: 100px; /* Increased slightly for better text fit */
+        margin-left: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        border-radius: 4px;
+        padding: 8px 0;
+        transition: all 0.2s ease;
+        border: none;
+        text-transform: uppercase;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+        /* Hover & Active Effects */
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .action-btn:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+    /* Specific Color Palette */
+    .btn-confirm {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-modify {
+        background-color: #ffc107;
+        color: #333; /* Darker text for better contrast on yellow */
+    }
+
+    .btn-deny {
+        background-color: #e74c3c; /* A softer, modern red */
+        color: white;
+    }
+
+    .btn-exit {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    /* Custom Outline Style for View Button */
+    .btn-outline-view {
+        background-color: transparent; /* No solid fill */
+        color: #4361ee; /* Professional Blue text */
+        border: 2px solid #4361ee; /* The Outline */
+        padding: 8px 20px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 4px; /* Matches your other buttons */
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        /* Hover State - Fills the button with color */
+        .btn-outline-view:hover {
+            background-color: #4361ee;
+            color: #ffffff; /* Text turns white on hover */
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Active/Click State */
+        .btn-outline-view:active {
+            transform: translateY(0);
+            background-color: #3046ad;
+            border-color: #3046ad;
+        }
+
+        /* Optional Icon Spacing */
+        .btn-outline-view i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+    .view_button {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+
+    /* Custom View Button Styling */
+.btn-view-custom {
+    background-color: #3f51b5; /* Professional Indigo/Blue */
+    color: #ffffff;
+    width: auto !important;    /* Allows the long text to fit */
+    padding: 8px 20px;         /* Balanced horizontal padding */
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    border-left: 5px solid #2c387e; /* Darker blue accent on the left */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Hover State */
+.btn-view-custom:hover {
+    background-color: #303f9f;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+/* Active/Click State */
+.btn-view-custom:active {
+    background-color: #283593;
+    transform: translateY(1px);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+}
+
+/* Icon Spacing (if you add an icon later) */
+.btn-view-custom i {
+    margin-right: 8px;
+}
+
+   
+</style>
+
+@section Scripts
+{
+
+    <script src="~/clientapp/rent_neft/neft_verification.js"></script>
+}

@@ -1,0 +1,157 @@
+﻿@{
+    ViewData["Title"] = "Update_NewBranch_ByIT";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>   NEW BRANCH INAUGRATION   </strong></div>
+            <div class="card-body card-block">
+                <form name="frmAgreementUpload" id="frmAgreementUpload" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="branchname" class="control-label mb-1">Branch<b style="color:red">*</b></label>
+                                <select name="branchname" id="branchname" class="form-control">
+                                    <option value="">--SELECT BRANCH--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="firmname" class="control-label mb-1">Firm<b style="color:red">*</b></label>
+                                <select name="firmname" id="firmname" class="form-control">
+                                    <option value="">--SELECT FIRM--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="branchtype" class="control-label mb-1">Branch Type<b style="color:red">*</b></label>
+                                <input type="text" id="branchtype" name="Branchtype" placeholder="Branch Type" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="language" class="control-label mb-1">Language<b style="color:red">*</b></label>
+                                <select name="language" id="language" class="form-control">
+                                    <option value="">--SELECT LANGUAGE--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label mb-1">
+                                    Branch Head <b style="color:red">*</b>
+                                </label>
+
+                                <div class="d-flex align-items-center" style="gap: 5px;">
+                                    <input type="text" id="empcode" name="empcode" class="form-control" placeholder="EmpCode" maxlength="6" style="width:80px;" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                                    <input type="text" id="headname" name="headname" placeholder="Branch Head Name" class="form-control" maxlength="15" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container7">
+                            <div class="form-group">
+
+                                <label for="inagurationdate" class="control-label mb-1">Inaguration Date<b style="color:red">*</b></label>
+                                <input type="text" id="inagurationdate" name="inagurationdate" placeholder="DD/MM/YYYY" class="form-control" maxlength="10">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="bphone" class="control-label mb-1">Branch Phone<b style="color:red">*</b></label>
+                                <input type="text" id="bphone" name="bphone" placeholder="Enter Branch Phone" class="form-control" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="bemail" class="control-label mb-1">Email ID<b style="color:red">*</b></label>
+                                <input type="email" id="bemail" name="txt_email" placeholder="Enter Email" maxlength="30" class="form-control" onblur="return ChkEmail()">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="gstinno" class="control-label mb-1">GSTIN Number</label>
+                                <input type="text" id="gstinno" name="gstinno" placeholder="Enter GSTIN No" maxlength="15" class="form-control" onkeyup="this.value=this.value.toUpperCase()" onblur="return GstIn()">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cinno" class="control-label mb-1">CIN Number</label>
+                                <input type="text" id="cinno" name="cinno" placeholder="Enter CIN No" maxlength="15" class="form-control" onkeyup="this.value=this.value.toUpperCase()">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="rbiregno" class="control-label mb-1">RBI Registration Number</label>
+                                <input type="text" id="rbiregno" name="rbiregno" placeholder="Enter RBI Reg No" maxlength="20" class="form-control" onkeyup="this.value=this.value.toUpperCase()">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+                <br /><br /><br />
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">UPDATE</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+
+@section Scripts {
+<script src="~/clientapp/updatenewbranch/updatenewbranchdtlit.js"></script>
+}

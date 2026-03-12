@@ -1,0 +1,356 @@
+﻿
+@{
+    ViewData["Title"] = "ADD_NEW_AGREEMENT";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>ADD NEW RENT AGREEMENT</strong></div>
+            <div class="card-body card-block">
+                <form name="frmAddAgreement" id="frmAddAgreement" method="post">
+
+                    <div class="row form-group">
+
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Category<b style="color:red">*</b></label>
+                                <select name="ddlcategory" id="ddlCategory" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1" id="branch_id">Branch<b style="color:red">*</b></label>
+                                <label for="cc-payment" class="control-label mb-1" id="near_branch_id" style="display:none;">Nearest Branch<b style="color:red">*</b></label>
+                                <select name="ddlbranch" id="ddlbranch" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="flat_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Flat Name<b style="color:red">*</b></label>
+                                <input type="text" id="TxtFlat" name="Fite Name" placeholder="Enter Flat Name" class="form-control">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="Capacity_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Capacity<b style="color:red">*</b></label>
+                                <input type="text" id="TxtCapacity" name="Capacity" placeholder="0" class="form-control" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="strong_room_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Strong Room <b style="color:red">*</b></label>
+                                <div style="padding-top:10px;">
+                                    <label class="radio-inline mr-3">
+                                        <input type="radio" name="StrongRoom" id="verify_yes" value="T"> Yes
+                                    </label>
+
+                                    <label class="radio-inline">
+                                        <input type="radio" name="StrongRoom" id="verify_no" value="F"> No
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="sqrFeet_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Square Feet<b style="color:red">*</b></label>
+                                <input type="text" id="TxtSqrfeet" name="Square Feet" placeholder="0" class="form-control" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Site Identifier <b style="color:red">*</b></label>
+                                <div>
+                                    <div style="padding-top:10px;">
+
+                                        <label class="radio-inline">
+                                            <input type="radio" name="SiteIdentifier" id="radio_emp" value="1"> Employee
+                                        </label>
+
+                                        @* <label class="radio-inline">
+                                        <input type="radio" name="SiteIdentifier" id="radio_emp" value="1"> Employee
+                                        </label> *@
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="emp_name_fetch_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Employee Code<b style="color:red">*</b></label>
+                                <div class="d-flex" style="gap: 5px;">
+                                    <input type="text" id="TxtempCode" name="Employee Code" placeholder="" class="form-control" style="flex: 1;" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                    <input type="text" id="Txtename" name="Employee Name" placeholder="Employee Name" class="form-control" style="flex: 2;" disabled>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="brokerage1">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Brokerage</label>
+                                <input type="text" id="Txtbrokerage" name="Brokerage" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Floor<b style="color:red">*</b></label>
+
+                                <select name="ddlFloor" id="ddlFloor" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="div_null2">
+                            <div class="form-group">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                @*                                 <label for="cc-payment" class="control-label mb-1">Total Monthly Rent<span style="color:red">(Including water charge)</span><b style="color:red">*</b></label>
+                                *@
+                                <label for="cc-payment" class="control-label mb-1">Total Monthly Rent (Including water charge)<b style="color:red">*</b></label>
+
+                                <input type="text" id="TxttotalMonthlyRent" name="Total Monthly Rent" placeholder="0" class="form-control" style="text-align: right;" oninput="this.value = this.value.replace(/[^0-9]/g, '');" maxlength="6">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Security Deposit<b style="color:red">*</b></label>
+                                <input type="text" id="TxtSequrityDeposit" name="Security Deposit" placeholder="0" class="form-control" style="text-align: right;" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                @*                                 <label for="cc-payment" class="control-label mb-1">Rent Period<span style="color:red"><u> in Months </u></span><b style="color:red">*</b></label>
+                                *@
+                                <label for="cc-payment" class="control-label mb-1">Rent Period (in Months)<b style="color:red">*</b></label>
+
+                                <input type="text" id="TxtRentPeriod" name="Security Deposit" placeholder="0" class="form-control" style="text-align: left; " maxlength="3" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Enhancement Period (in Months )<b style="color:red">*</b></label>
+
+
+                                @*                                 <label for="cc-payment" class="control-label mb-1">Enhancement Period<span style="color:red"><u> in Months </u></span><b style="color:red">*</b></label>
+                                *@                                <input type="text" id="TxtEnhancedPeriod" name="Enhancement Period" placeholder="0" class="form-control" style="text-align: left; " maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container5">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Agreement Date <b style="color:red">*</b></label>
+                                <input type="text" id="TxtAgrimentdt" name="Agreement Date" class="form-control" placeholder="DD/MM/YYYY" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container7">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Effective Date <b style="color:red">*</b></label>
+                                <input type="text" id="TxtEffectiveDt" name="Effective Date " class="form-control" placeholder="DD/MM/YYYY" />
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container6">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Agreement End Date <b style="color:red">*</b></label>
+                                <input type="text" id="TxtAgrimentEndDt" name="Agreement End Date" class="form-control" placeholder="DD/MM/YYYY" disabled />
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container8">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Next Renew Date <b style="color:red">*</b></label>
+                                <input type="text" id="TxtnextRenewDt" name="Agreement End Date" class="form-control" placeholder="DD/MM/YYYY" disabled />
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">No Of Options Available For Renewal<b style="color:red">*</b></label>
+                                <input type="text" id="TxtNoRenewal" name="Security Deposit" placeholder="" class="form-control" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Period Of Each Block (in Months)<b style="color:red">*</b></label>
+                                <input type="text" id="TxtPrdBlock" name="Security Deposit" placeholder="" class="form-control" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Percentage Of Increase In Each Block</label>
+                                <input type="text" id="TxtPercentIncrese" name="Security Deposit" placeholder="" class="form-control" oninput="this.value = this.value.replace(/[^0-9]/g, '');" maxlength="2">
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container9">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Date Of Initial Agreement</label>
+                                <input type="text" id="TxtDtIntitail" name="Date Of Initial Agreement" placeholder="DD/MM/YYYY" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="form-check" style="margin-top: 35px;">
+                                    <input type="checkbox" class="form-check-input" id="chkAgreement" name="Agreement">
+                                    <label class="form-check-label" for="chkAgreement">
+                                        Tick Whether Draft Agreement
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">Add Owner Details</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+    /* Professional Card Styling */
+    /* .card {
+                      border: none;
+                      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+                      border-radius: 8px;
+                  }
+
+                  .card-header {
+                      background-color: #f8f9fa;
+                      border-bottom: 2px solid #e9ecef;
+                      font-weight: bold;
+                      color: #333;
+                      text-transform: uppercase;
+                      letter-spacing: 1px;
+                  } */
+
+    /*   .form-group label {
+                      font-weight: 600;
+                      font-size: 0.85rem;
+                      color: #555;
+                      margin-bottom: 8px;
+                      display: block;
+                      height: 20px;
+                  }
+
+                  .label-tall {
+                      height: auto !important;
+                      margin-bottom: 2px !important;
+                  }
+
+                  .form-control {
+                      border-radius: 4px;
+                      border: 1px solid #ced4da;
+                      transition: border-color 0.2s, box-shadow 0.2s;
+                  }
+
+                      .form-control:focus {
+                          border-color: #80bdff;
+                          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .15);
+                      } */
+
+    /* Radio/Checkbox alignment */
+    .radio-inline, .form-check-label {
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    .action-btn {
+        min-width: 140px;
+        font-weight: 600;
+        padding: 8px 20px;
+        transition: all 0.3s;
+    }
+
+    .radio-toolbar {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid #eee;
+        text-align: center;
+    }
+
+    hr {
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+    }
+</style>
+
+
+@section Scripts {
+    <script src="~/clientapp/addagreement/addagreement.js"></script>
+
+
+}
