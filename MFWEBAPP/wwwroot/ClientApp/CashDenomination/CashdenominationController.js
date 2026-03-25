@@ -1,4 +1,6 @@
-﻿var _Cashdenomination = {
+﻿var mobile_number;
+var User;
+var _Cashdenomination = {
     CashConfirm: function () {
         var sysAmt = jQuery('#systotal').val();
         var TotalAmt = jQuery('#txttotal').val();
@@ -98,10 +100,12 @@
             }
             CashConfirmTablefillData = { "encryptedRqstStr": EncryptAPIReq(CashConfirmTablefillData) };
         }
-        _http.post(MFPUBLICLMSAPI_URL + "api/accountdetails/BranchCashPosition", CashConfirmTablefillData, _Cashdenomination.CashConfirmcompleted, userdata.token);
+        _http.post(MFPUBLICRENTAPI_URL + "api/accounts/BranchCashPosition", CashConfirmTablefillData, _Cashdenomination.CashConfirmcompleted, userdata.token);
     },
     clear: function () {
-        window.location.href = "./cashdenomination";
+        document.getElementById("txt_id").value = "";
+        document.getElementById("txt_pwd").value = "";
+        window.location.href = "./denominationcash";
     },
     CashConfirmcompleted: function (response) {
         if (response.status == "SUCCESS") {
@@ -110,10 +114,32 @@
             } catch (e) {
                 response.data = null;
             }
-            swal(" ", response.data.message, "success");
-           _Cashdenomination.clear();
+
+            swal({
+                title: "Success",
+                text: response.responseMsg,
+                type: "success"
+            }, function () {
+
+                _Cashdenomination.clear();
+
+            });
+
+
+
         } else {
-            swal(" ", response.responseMsg, "error");
+
+            swal({
+                title: "Warning",
+                text: response.responseMsg,
+                type: "error"
+            }, function () {
+
+                _Cashdenomination.clear();
+
+            });
+
+
         }
         jQuery('.page-loader-wrapper').hide();
     },
@@ -130,7 +156,7 @@
             return false;
         }
         SystemDepositAmount = { "encryptedRqstStr": EncryptAPIReq(SystemDepositAmount) };
-        _http.post(MFPUBLICLMSAPI_URL + "api/accountdetails/BranchCashPosition", SystemDepositAmount, _Cashdenomination.SystemDepAmt, userdata.token);
+        _http.post(MFPUBLICRENTAPI_URL + "api/accounts/BranchCashPosition", SystemDepositAmount, _Cashdenomination.SystemDepAmt, userdata.token);
     },
     SystemDepAmt: function (response) {
         if (response.status === "SUCCESS") {
@@ -167,7 +193,7 @@
 
         PunchinCheck = { "encryptedRqstStr": EncryptAPIReq(PunchinCheck) };
 
-        _http.post(MFPUBLICLMSAPI_URL + "api/accountdetails/BranchCashPosition", PunchinCheck, _Cashdenomination.UserPunchinResponse, userdata.token);
+        _http.post(MFPUBLICRENTAPI_URL + "api/accounts/BranchCashPosition", PunchinCheck, _Cashdenomination.UserPunchinResponse, userdata.token);
     },
 
     UserPunchinResponse: function (response) {
@@ -182,21 +208,23 @@
 
             if (response.data.message === "Successfully Confirmed") {
 
-                swal(" ", "Your Are on live punching", "warning");
+                /* swal(" ", "Your Are on live punching", "warning");*/
+
+                _Cashdenomination.GetMobile();
                 jQuery('.page-loader-wrapper').hide();
 
 
-               
+
 
 
             } else {
                 swal(" ", response.data.message, "error");
                 jQuery('.page-loader-wrapper').hide();
 
-                  }
-
-
             }
+
+
+        }
 
 
     },
@@ -218,8 +246,8 @@
 
         GetMobileNumber = { "encryptedRqstStr": EncryptAPIReq(GetMobileNumber) };
 
-        _http.post(MFPUBLICLMSAPI_URL + "api/accountdetails/BranchCashPosition", GetMobileNumber, _Cashdenomination.MobileResponse, userdata.token);
-   
+        _http.post(MFPUBLICRENTAPI_URL + "api/accounts/BranchCashPosition", GetMobileNumber, _Cashdenomination.MobileResponse, userdata.token);
+
     },
 
     MobileResponse: function (response) {
@@ -232,14 +260,145 @@
             }
         }
         mobilenum = response.data.mobileNumber;
+        mobile_number = mobilenum;
+        userid = jQuery('#txt_id').val();
+        User = userid
+
+        _Cashdenomination.OtpSendRequest(mobilenum, userid);
+    },
+
+    OtpSendRequest: async function (mobilenum, userid) {
+
+        jQuery('.page-loader-wrapper').show();
+        var key = CryptoJS.enc.Utf8.parse('7x!A%D*G-KaPdSgV');
+        var iv = CryptoJS.enc.Utf8.parse('7x!A%D*G-KaPdSgV');
+        var mob = mobilenum;
+        var uid = userid;
+        var encryptedmob = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(mob), key,
+            {
+                keySize: 128 / 8,
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+        var OtpSend = {
+            "customerId": 2,
+            "typeId": 1,
+            "mobileNo": encryptedmob.toString(),
+            "userId": uid
+        };
 
 
+        _http.post(MFPUBLICCUSTOMERAPI_URL + "api/general/otp", OtpSend, _Cashdenomination.OtpSendsucess)
+    },
+
+    OtpSendsucess: function (response) {
+
+        if (response.status === "SUCCESS") {
+
+            /*jQuery('#Login').show();*/
+            jQuery('#phonenum').text('');
+            var mob = mobilenum.replace(/\d(?=\d{4})/g, 'X');
+            jQuery("#phonenum").text("+91 XXXXXX" + mobilenum.substr(6));
+            jQuery("#Otp").modal('show');
+            jQuery('#VerifyOtp').show();
+            jQuery('#ResentOtp').hide();
+            CountDown();
+        }
+        else {
+            swal(response.message, "", "error");
+        }
+        jQuery('.page-loader-wrapper').hide();
+    },
+
+    OtpVerifyRequest: function () {
+        jQuery('.page-loader-wrapper').show();
+        var key = CryptoJS.enc.Utf8.parse('7x!A%D*G-KaPdSgV');
+        var iv = CryptoJS.enc.Utf8.parse('7x!A%D*G-KaPdSgV');
+        var mob = mobilenum;
+        var encryptedmob = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(mob), key,
+            {
+                keySize: 128 / 8,
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+        var OtpVerify = {
+            "otp": jQuery('#otpid').val(),
+            "typeId": 1,
+            "mobileNo": encryptedmob.toString()
+        };
+
+
+
+        _http.post(MFPUBLICCUSTOMERAPI_URL + "api/general/verifyotp", OtpVerify, _Cashdenomination.OtpVerify)
+    },
+
+
+    OtpVerify: function (response) {
+        jQuery('.page-loader-wrapper').hide();
+        if (response.status === "SUCCESS") {
+
+
+
+            if (response.responseMsg = "SUCCESS") {
+
+                swal({
+                    title: "Success",
+                    text: "OTP Verification Success",
+                    type: "success"
+                }, function () {
+
+
+                    jQuery('#Otp').hide();
+                    jQuery('#ResentOtp').hide();
+                    jQuery('.page-loader-wrapper').hide();
+                    jQuery('#frmcashdenomination').show();
+                    _Cashdenomination.CashConfirm();
+
+
+                });
+
+            }
+            else {
+
+                swal({
+                    title: "Warning..!",
+                    text: "OTP Verification Failed",
+                    type: "error"
+                }, function () {
+
+                    LogOutClearLocalStorage();
+                    localStorage.setItem('currentUser', LocalStr, encryptkey);
+                    jQuery('#Otp').show();
+                    jQuery('#ResentOtp').show();
+                    jQuery('.page-loader-wrapper').hide();
+
+                });
+
+            }
+        }
+        else {
+
+            swal("", "FAILED ", "error");
+            return false;
+            window.location.href = "./denominationcash";
+            //jQuery("#login_submit").val("Login to continue");
+            //jQuery("#login_submit").attr("disabled", false);
+            //jQuery("#otpid").val('');
+            //swal("", "OTP Verification Failed", "error");
+        }
     },
 
 
 
-
 }
+
+
+
+
+
+
 jQuery(document).ready(function ($) {
     jQuery('.page-loader-wrapper').hide();
     _Cashdenomination.SystemAmtFill();
@@ -309,11 +468,155 @@ jQuery(document).ready(function ($) {
             return false;
         }
 
-        else {
-            _Cashdenomination.UserPunchin();
-        }
+        //else {
+        //    _Cashdenomination.UserPunchin();
+        //}
+    });
+
+    // Submit
+
+    jQuery('#btnConfirm').click(function () {
+
+        _Cashdenomination.UserPunchin();
+
+        // _Cashdenomination.OtpSendRequest(mobile_number, User);
+        // _Cashdenomination.CashConfirm();
+    });
+
+    // OTP Verification and Resend OTP
+
+    jQuery('#VerifyOtp').click(function () {
+
+        _Cashdenomination.OtpVerifyRequest();
+    });
+    jQuery('#ResentOtp').click(function () {
+        ClearOtp();
+    });
+    function ClearOtp() {
+        jQuery(".containers").html('');
+        jQuery("#otpid").val('');
+
+        _Cashdenomination.OtpSendRequest(mobile_number, User);
+    }
+
+    jQuery('#close').click(function () {
+
+        window.location.reload(true);
+
     });
 
 
-
 });
+
+function CountDown() {
+    var width = 280,
+        height = 280,
+        timePassed = 0,
+        timeLimit = 30;
+
+    var fields = [{
+        value: timeLimit,
+        size: timeLimit,
+        update: function () {
+            return timePassed = timePassed + 1;
+        }
+    }];
+
+
+    var nilArc = d3.svg.arc().
+        innerRadius(width / 3 - 133).
+        outerRadius(width / 3 - 133).
+        startAngle(0).
+        endAngle(2 * Math.PI);
+
+    var arc = d3.svg.arc().
+        innerRadius(width / 3 - 45).
+        outerRadius(width / 3 - 35).
+        startAngle(0).
+        endAngle(function (d) {
+            return d.value / d.size * 2 * Math.PI;
+        });
+
+    var svg = d3.select(".containers").append("svg").
+        attr("width", width).
+        attr("height", height);
+
+    var field = svg.selectAll(".field").
+        data(fields).
+        enter().append("g").
+        attr("transform", "translate(" + width / 2 + "," + height / 2 + ")").
+        attr("class", "field");
+
+    var back = field.append("path").
+        attr("class", "path path--background").
+        attr("d", arc);
+
+    var path = field.append("path").
+        attr("class", "path path--foreground");
+
+    var label = field.append("text").
+        attr("class", "label").
+        attr("dy", ".35em");
+
+    (function update() {
+
+        field.
+            each(function (d) {
+                d.previous = d.value, d.value = d.update(timePassed);
+            });
+
+        path.transition().
+            ease("elastic").
+            duration(500).
+            attrTween("d", arcTween);
+
+        if (timeLimit - timePassed <= 10)
+            pulseText(); else
+
+            label.
+                text(function (d) {
+                    return d.size - d.value;
+                });
+
+        if (timePassed <= timeLimit)
+            setTimeout(update, 1000 - timePassed % 1000);
+        else
+            destroyTimer();
+
+
+    })();
+
+    function pulseText() {
+        back.classed("pulse", true);
+        label.classed("pulse", true);
+
+        if (timeLimit - timePassed >= 0) {
+            label.style("font-size", "120px").
+                attr("transform", "translate(0," + +4 + ")").
+                text(function (d) {
+                    return d.size - d.value;
+                });
+        }
+
+        label.transition().
+            ease("elastic").
+            duration(900).
+            style("font-size", "60px").
+            attr("transform", "translate(0," + -1 + ")");
+    }
+
+    function destroyTimer() {
+        jQuery('#VerifyOtp').hide();
+        jQuery('#ResentOtp').show();
+    }
+
+    function arcTween(b) {
+        var i = d3.interpolate({
+            value: b.previous
+        },
+            b);
+        return function (t) {
+            return arc(i(t));
+        };
+    }
+}
