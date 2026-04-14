@@ -1,0 +1,458 @@
+﻿
+@{
+    ViewData["Title"] = "AddNewBranchHostel";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>  ADD NEW HOSTEL  </strong></div>
+            <div class="card-body card-block">
+                <form name="frmHostelAdd" id="frmHostelAdd" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Hostel Name<b style="color:red">*</b></label>
+                                <input type="text" id="Hostel_name"  placeholder="Enter Hostel Name..." class="form-control" >
+
+                            </div>
+
+
+                        </div>
+                           <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="ccountry" class="control-label mb-1">Nearest Branch<b style="color:red">*</b></label>
+                                <select name="branch" id="branch_id" class="form-control">
+                                    <option value="0">--Select Branch--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Mobile<b style="color:red">*</b> </label>
+                                <input type="text" id="mobile" name="Phone No" placeholder="Enter Mobile No" class="form-control" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+                        </div>
+
+                      
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Hostel Address<b style="color:red">*</b></label>
+                                <input type="text" id="HostelAddress" name="Hostel Address" class="form-control" placeholder="Enter Hostel Address...">
+
+
+                            </div>
+                        </div>
+
+                       
+
+                      
+
+                    </div>
+
+                     <div>
+                        <hr>
+                        <h4 class="text-primary font-weight-bold ">
+
+                            Location Details
+                        </h4>
+                    </div>
+                    <br/>
+                         <div class="row form-group">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">State<b style="color:red">*</b></label>
+                                <select name="ddlState" id="ddlState" class="form-control">
+                                    <option value="0">--Select State--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">District<b style="color:red">*</b></label>
+                                <select name="ddlDistrict" id="ddlDistrict" class="form-control">
+                                    <option value="0">--Select District--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Post<b style="color:red">*</b></label>
+                                <select name="ddlPost" id="ddlPost" class="form-control">
+                                    <option value="0">--Select Post--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Pincode</label>
+                                <input type="text" id="TxtPinCode" name="Pincode" class="form-control" placeholder="000000" maxlength="10" disabled="disabled">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Zonal<b style="color:red">*</b></label>
+                                <select name="ddlZonal" id="ddlZonal" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Region<b style="color:red">*</b></label>
+                                <select name="ddlRegion" id="ddlRegion" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Division<b style="color:red">*</b></label>
+                                <select name="ddlDivision" id="ddlDivision" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Area<b style="color:red">*</b></label>
+                                <select name="ddlArea" id="ddlArea" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Local Body<b style="color:red">*</b></label>
+                                <select name="ddlLocalBody" id="ddlLocalBody" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Local Body Name<b style="color:red">*</b></label>
+                                <input type="text" id="TxtlocalBodyName" name="Local Body Name" class="form-control" placeholder="Enter Local Body Name">
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                      <br/>
+                         <div class="row form-group">
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">No of Occupants<b style="color:red">*</b></label>
+                                <input type="text" id="txtOccupants" name="No of Occupants" class="form-control" placeholder="Enter No of Occupants.." maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+
+                            </div>
+
+
+                        </div>
+
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">No of Halls<b style="color:red">*</b></label>
+                                <input type="text" id="txtHalls" name="No Of Halls" class="form-control" placeholder="Enter No of Halls.." maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+
+                            </div>
+
+
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">No of Bedrooms<b style="color:red">*</b></label>
+                                <input type="text" id="txtBedrooms" name="No Of Bedrooms" class="form-control" placeholder="Enter No of Bedrooms.." maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+
+                            </div>
+
+
+                        </div>
+                          <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">No of Kitchens<b style="color:red">*</b></label>
+                                <input type="text" id="txtKitchens" name="No Of Kitchens" class="form-control" placeholder="Enter No of Kitchens..." maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+
+                            </div>
+
+
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">No of Attached Bathroom<b style="color:red">*</b></label>
+                                <input type="text" id="txtbathrooms" name="No Of Kitchens" class="form-control" placeholder="Enter No of Attached Bathroom..." maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+
+                            </div>
+
+
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Electricity<b style="color:red">*</b></label>
+                                <div style="padding-top:8px;">
+                                    <label class="radio-inline mr-3">
+                                        <input type="radio" name="Electricity" id ="Electricity_yes" value="1"> Yes
+                                    </label>
+
+                                    <label class="radio-inline">
+                                        <input type="radio" name="Electricity" id="Electricity_no" value="0"> No
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Water<b style="color:red">*</b></label>
+                                <div style="padding-top:8px;">
+                                    <label class="radio-inline mr-3">
+                                        <input type="radio" name="Water" id="Water_yes" value="1"> Yes
+                                    </label>
+
+                                    <label class="radio-inline">
+                                        <input type="radio" name="Water" id="Water_no" value="0"> No
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Parking<b style="color:red">*</b></label>
+                                <div style="padding-top:8px;">
+                                    <label class="radio-inline mr-3">
+                                        <input type="radio" name="Parking" id="Parking_yes" value="1"> Yes
+                                    </label>
+
+                                    <label class="radio-inline">
+                                        <input type="radio" name="Parking" id="Parking_no" value="0"> No
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="sqrFeet_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Square Feet<b style="color:red">*</b></label>
+                                <input type="text" id="TxtSqrfeet" name="Square Feet" placeholder="Enter Square Feet..." class="form-control" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="sqrFeet_div">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Advance Rent</label>
+                                <input type="text" id="TxtAdvRent" name="Square Feet" placeholder="Advance Rent..." class="form-control"   maxlength="6"  oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container1">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Agreement From Date <b style="color:red">*</b></label>
+                                <input type="text" id="TxtAgrimentdt" name="Agreement Date" class="form-control" placeholder="DD/MM/YYYY" />
+                            </div>
+                        </div>
+                       
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container2">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Agreement To Date <b style="color:red">*</b></label>
+                                <input type="text" id="TxtAgrimentEndDt" name="Agreement To Date" class="form-control" placeholder="DD/MM/YYYY"/>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Proposed Floor<b style="color:red">*</b></label>
+                                <input type="text" id="txtFloor" name="Proposed Floor" placeholder="Proposed Floor..." class="form-control">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Rent Amount</label>
+                                <input type="text" id="txtRent" name="Rent Amount" placeholder="Rent Amount..." class="form-control"  maxlength="6"   oninput="this.value = this.value.replace(/[^0-9]/g, '');" style="text-align: right;">
+
+                            </div>
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Hostel Type<b style="color:red">*</b></label>
+                                <select name="Hostel Type" id="ddlHostelType" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Types of Buildings<b style="color:red">*</b></label>
+                                   <select name="Types of Buildings" id="ddlBuilding" class="form-control">
+                                    <option value="0">--Select--</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                        
+
+                        </div>
+
+                         <div>
+                        <hr>
+                        <h4 class="text-primary font-weight-bold ">
+
+                           Asset Details
+                        </h4>
+                    </div>
+                    <br/>
+
+                     <div class="row form-group">
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Item Select<b style="color:red">*</b></label>
+                                <select name="Item Select" id="ddlItem" class="form-control">
+                                    <option value="0">--Select --</option>
+                                 
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Count<b style="color:red">*</b></label>
+                                <input type="text" id="txtCount" name="Count" class="form-control" placeholder="Enter Count..." maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+
+                            </div>
+
+
+                        </div>
+
+                           <div class="col-lg-1 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group" style="padding-top:22px;">
+                                <button type="button" class="btn btn-secondary btn-custom" id="BtnAdd">ADD</button>
+
+                            </div>
+                         </div>
+
+                        </div>
+
+                            <div class="row form-group" style="padding-left:18px;">
+
+                              
+                             <div class="professional-border-box col-lg-9 col-md-9 col-sm-12 col-xs-12" id="account_div"  style="display:none;">
+                       
+                            
+                                   <table class="table " id="itemTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Item Name</th>
+                                                <th>Count</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="itemTableBody"> </tbody>
+                                    </table>
+                     
+                            
+                            </div>
+                            </div>
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">SUBMIT</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+         width: 90px;
+     
+    }
+     /* Professional Bordered Box */
+    .professional-border-box {
+        border: 1px solid #ced4da;
+        background-color: #f1f4f6;
+        /* #f8f9fa; */
+        padding: 20px 15px 10px 15px;
+        border-radius: 4px;
+/*         position: relative;
+ */    }
+
+
+</style>
+
+
+@section Scripts {
+
+    <script src="~/clientapp/HostelOpening/AddNewHostel.js"></script>
+}
+

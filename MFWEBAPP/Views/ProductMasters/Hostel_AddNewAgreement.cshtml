@@ -1,0 +1,193 @@
+﻿@{
+    ViewData["Title"] = "Hostel_AddNewAgreement";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>ADD NEW RENT AGREEMENT</strong></div>
+            <div class="card-body card-block">
+                <form name="frmHostelAddAgreement" id="frmHostelAddAgreement" method="post">
+
+
+
+
+                    <div class="row form-group">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <label class="control-label mb-1">Category <b style="color:red">*</b></label>
+                            <select id="DdlHostelCategory" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+
+                        </div>
+                       
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <label class="control-label mb-1">Hostel <b style="color:red">*</b></label>
+                            <select id="DdlHostel" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+                        </div>
+                      
+                    </div>
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <label class="control-label mb-1">Total Monthly Rent</label>
+                            <input type="text" id="txtMonthlyRent" class="form-control" placeholder="Total Monthly Rent..." disabled>
+
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <label class="control-label mb-1">Security Deposit</label>
+                            <input type="text" id="txtSecurityDeposit" class="form-control" placeholder="Security Deposit..." disabled>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <label class="control-label mb-1">Agreement From Date</label>
+                            <input type="text" id="txtAgreemetDt" class="form-control" placeholder="Agreement From Date..." disabled>
+
+                        </div>
+
+                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <label class="control-label mb-1">Agreement End Date</label>
+                            <input type="text" id="txtAgreeEndDt" class="form-control" placeholder="Agreement End Date..." disabled>
+
+                        </div>
+
+                     </div>
+                     <hr />
+
+                    <div class="row form-group">
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+
+                            <label class="control-label mb-1">Customer <b style="color:red">*</b></label>
+                            <select id="DdlCustomer" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+                           
+                        </div>
+                     </div>
+
+
+
+
+                  <div class="p-2 border rounded shadow-sm bg-light">
+                    
+                       
+                    <div class="row form-group" style="padding-left:15px;padding-right:15px;">
+                        <div class ="col-lg-2 col-md-4 col-sm-6 px-1 mb-2">
+                            <label class="control-label mb-1">Customer ID</label>
+                            <input type="text" id="txtCustId" class="form-control" placeholder="Customer ID..." disabled>
+
+                        </div>
+
+                        
+                        <div class="col-lg-3 col-md-4 col-sm-6 px-1 mb-2">
+                            <label class="control-label mb-1">Customer Name</label>
+                            <input type="text" id="txtCustName" class="form-control" placeholder="Customer Name..." disabled>
+
+                         </div>
+
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 px-1 mb-2">
+                            <label class="control-label mb-1">Monthly Rent <b style="color:red">*</b></label>
+                            <input type="text" id="txtMontRent_input" class="form-control" placeholder=" Enter Monthly Rent	..." maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');" style="text-align: right;">
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 px-1 mb-2">
+                            <label class="control-label mb-1">Security Deposit <b style="color:red">*</b></label>
+                            <input type="text" id="txtSecurityDeposit_input" class="form-control" placeholder="Enter Security Deposit..." maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');" style="text-align: right;">
+
+                        </div>
+
+                        <div class="col-lg-1 col-md-4 col-sm-12 px-1 mb-2"  style="padding-top:21px;">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-secondary btn-custom" id="BtnAdd">ADD</button>
+
+                            </div>
+                        </div>
+
+                      </div>
+
+
+                        <div class="mt-3" id="TableContainer" style="display: none;">
+                            <table class="table table-bordered table-sm" id="tblCustomerDetails">
+                                <thead class="bg-secondary text-white">
+                                    <tr>
+                                        <th style="text-align:center;">Customer ID</th>
+                                        <th style="text-align:center;">Name</th>
+                                        <th style="text-align:center;">Monthly Rent</th>
+                                        <th style="text-align:center;">Security Deposit</th>
+                                        <th style="width: 50px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
+                  </div>
+
+
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">CONFIRM</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+  
+
+
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+        width: 90px;
+    }
+    /* Professional Bordered Box */
+    .professional-border-box {
+        border: 1px solid #ced4da;
+        background-color: #f1f4f6;
+        /* #f8f9fa; */
+        padding: 20px 15px 10px 15px;
+        border-radius: 4px;
+        /*         position: relative;
+     */
+    }
+
+    /* Force borders on all cells and rows */
+    #tblCustomerDetails.table-bordered,
+    #tblCustomerDetails.table-bordered td,
+    #tblCustomerDetails.table-bordered th {
+        border: 1px solid #dee2e6 !important;
+    }
+
+</style>
+
+@section Scripts {
+    <script src="~/clientapp/hostelopening/addhostelagreement.js"></script>
+}

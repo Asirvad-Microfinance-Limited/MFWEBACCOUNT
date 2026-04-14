@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Agreement_upload_hostel";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong>  AGREEMENT UPLOAD HOSTEL </strong></div>
+            <div class="card-body card-block">
+                <form name="frmAgreementUpload" id="frmAgreementUpload" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Select Hostel<b style="color:red">*</b></label>
+                                <select name="hostelname" id="hostelname" class="form-control">
+                                    <option value="">--SELECT HOSTEL--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Square Feet<b style="color:red">*</b></label>
+                                <input type="text" id="sqfeet" name="Squarefeet" placeholder="Square Feet" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Monthly Rent<b style="color:red">*</b></label>
+                                <input type="text" id="mntrent" name="Monthlyrent" placeholder="Monthly Rent" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Advance Amount<b style="color:red">*</b></label>
+                                <input type="text" id="advamnt" name="Advanceamount" placeholder="Advance Amount" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Flat Name<b style="color:red">*</b></label>
+                                <input type="text" id="fltname" name="Flatname" placeholder="Flat Name" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        @* <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+
+                        <label for="cc-payment" class="control-label mb-1">Attach Agreement<b style="color:red">*</b></label>
+                        <input type="file" id="fleupld" name="Fileupload" placeholder="Upload" class="form-control" maxlength="10">
+
+                        </div>
+                        </div> *@
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Attach Agreement<b style="color:red">*</b></label>
+                                <input type="file" id="pdfUpload" name="*Attach Agreement" class="form-control">
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </form>
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">CONFIRM</button>
+                        @* <button type="button" class="btn btn-danger action-btn" id="btnReject">REJECT</button> *@
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+@section Scripts {
+    <script src="~/clientapp/hosteldtl/uploadagreementhstl.js"></script>
+}

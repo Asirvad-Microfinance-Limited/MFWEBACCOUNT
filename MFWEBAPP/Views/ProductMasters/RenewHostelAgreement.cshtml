@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "RenewHostelAgreement";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong> RENEW RENT AGREEMENT DATE </strong></div>
+            <div class="card-body card-block">
+                <form name="frmAgreementUpload" id="frmAgreementUpload" method="post">
+
+                    <div class="row form-group">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Hostel<b style="color:red">*</b></label>
+                                <select name="hostelname" id="hostelname" class="form-control">
+                                    <option value="">--Select Hostel--</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cc-payment" class="control-label mb-1">Category</label>
+                                <select name="categoryname" id="categoryname" class="form-control">
+                                    <option value="">--Select Category--</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Agreement From</label>
+                                <input type="text" id="agreementfrom" name="agreementfrom" placeholder="Agreement From" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Agreement To</label>
+                                <input type="text" id="agreementto" name="agreementto" placeholder="Agreement To" class="form-control" maxlength="10" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" id="bs_datepicker_container6">
+                            <div class="form-group">
+                                <label for="datepicker" class=" form-control-label mb-1">Agreement To Date <b style="color:red">*</b></label>
+                                <input class="form-control datepicker " id="agreementtodt" name="agreementtodt" placeholder="DD/MM/YYYY" type="text" maxlength="10" onkeypress="return false" />
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                <label for="cc-payment" class="control-label mb-1">Increment Percentage<b style="color:red">*</b></label>
+                                <input type="text" id="incrpercnt" name="incrpercnt" placeholder="Enter Increment Percentage" class="form-control" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </form>
+                <br /><br /> <br /><br /> <br /><br />
+
+                <div class="text-right" id="confirmbutton">
+                    <div class="text-right" style="padding: 10px">
+                        <button type="button" class="btn btn-success action-btn" id="BtnConfirm">CONFIRM</button>
+                        <button type="button" class="btn btn-danger action-btn" id="btn_exit">EXIT</button>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .action-btn {
+        width: 85px;
+        margin-left: 3px;
+    }
+
+    .btn-custom {
+        background-color: #dee2e6;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+</style>
+
+@section Scripts {
+    <script src="~/clientapp/hosteldtl/renewalrequest.js"></script>
+}

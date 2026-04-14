@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewData["Title"] = "HostelApproval";
+    Layout = "~/Views/Shared/_MFMainLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><strong> HOSTEL APPROVAL </strong></div>
+            <div class="card-body card-block">
+                <form name="frmHostelApproval" id="frmHostelApproval" method="post">
+
+
+
+ 
+
+                    <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 mb-3">
+                <label class="control-label mb-1">Hostel Name <b style="color:red">*</b></label>
+                <select id="DdlHostelName" class="form-control">
+                    <option value="0">--Select--</option>
+                </select>
+            </div> 
+            <div class="col-lg-6 col-md-6 mb-3">
+                <label class="control-label mb-1">Mobile No</label>
+                <input type="text" id="txtMobNo" class="form-control" placeholder="Mobile No" disabled>
+            </div>
+            <div class="col-lg-6 col-md-6 mb-3">
+                <label class="control-label mb-1">Hostel Type</label>
+                <input type="text" id="txtHostelType" class="form-control" placeholder="Hostel Type" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group mb-3">
+            <label class="control-label mb-1">Hostel Address</label>
+            <textarea id="txtHostelAddress" class="form-control" rows="4" placeholder="Hostel Address..." disabled style="height: 110px; resize: none;"></textarea>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<h4 class="mb-3 text-primary font-weight-bold " style="text-transform: none !important;">Agreement & Building Details</h4>
+
+<div class="row">
+    <div class="col-lg-3 col-md-6 mb-3">
+        <label class="control-label mb-1">Square Feet</label>
+        <input type="text" id="TxtSqrfeet" class="form-control" placeholder="Square Feet" disabled>
+    </div>
+     <div class="col-lg-3 col-md-6 mb-3">
+        <label class="control-label mb-1">Advance Rent</label>
+        <input type="text" id="TxtAdvRent" class="form-control" placeholder="Advance Rent" disabled>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-3">
+        <label class="control-label mb-1">Agreement From</label>
+        <input type="text" id="TxtAgrimentdt" class="form-control" placeholder="DD/MM/YYYY" disabled>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-3">
+        <label class="control-label mb-1">Agreement To</label>
+        <input type="text" id="TxtAgrimentEndDt" class="form-control" placeholder="DD/MM/YYYY" disabled>
+    </div>
+   
+      <div class="col-lg-3 col-md-6 mb-3">
+        <label class="control-label mb-1">Building Type</label>
+        <input type="text" id="txtbuilding" class="form-control" placeholder="Building Type" disabled>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-3">
+        <label class="control-label mb-1">Rent Amount</label>
+        <input type="text" id="txtRent" class="form-control" style="text-align: right;" placeholder="0.00" disabled>
+    </div>
+  
+   
+</div>
+
+<hr />
+<h4 class="mb-3 text-primary font-weight-bold " style="text-transform: none !important;">Location Details</h4>
+
+<div class="row">
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">State</label><input type="text" id="txtState" placeholder="State" class="form-control" disabled></div>
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">District</label><input type="text" id="txtDistrict"  placeholder="District" class="form-control" disabled></div>
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">Post</label><input type="text" id="txtPost" placeholder="Post" class="form-control" disabled></div>
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">Pincode</label><input type="text" id="TxtPinCode" placeholder="000000" class="form-control" disabled></div>   
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">Zonal</label><input type="text" id="txtZonal" placeholder="Zonal" class="form-control" disabled></div>
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">Region</label><input type="text" id="txtRegion"  placeholder="Region"class="form-control" disabled></div>
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">Division</label><input type="text" id="txtDivision" placeholder="Division" class="form-control" disabled></div>
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">Area</label><input type="text" id="txtArea" placeholder="Area" class="form-control" disabled></div>  
+    <div class="col-lg-3 col-md-6 mb-3"><label class="control-label mb-1">Local Body</label><input type="text" id="txtLocalBody" placeholder="Local Body" class="form-control" disabled></div>
+    <div class="col-lg-9 col-md-6 mb-3"><label class="control-label mb-1">Local Body Name</label><input type="text" id="TxtlocalBodyName" placeholder="Local Body Name" class="form-control" disabled></div>
+</div>
+
+<hr />
+<h4 class="mb-3 text-primary font-weight-bold " style="text-transform: none !important;">Internal Specifications</h4>
+
+<div class="row">
+
+    <div class="col-lg-2 col-md-4 mb-3"><label class="control-label mb-1">Occupants</label><input type="text" id="txtOccupants" class="form-control" placeholder="0" disabled></div>
+    <div class="col-lg-2 col-md-4 mb-3"><label class="control-label mb-1">Halls</label><input type="text" id="txtHalls" class="form-control" placeholder="0" disabled></div>
+    <div class="col-lg-2 col-md-4 mb-3"><label class="control-label mb-1">Bedrooms</label><input type="text" id="txtBedrooms" class="form-control" placeholder="0" disabled></div>
+    <div class="col-lg-2 col-md-4 mb-3"><label class="control-label mb-1">Kitchens</label><input type="text" id="txtKitchens" class="form-control" placeholder="0" disabled></div>
+    <div class="col-lg-2 col-md-4 mb-3"><label class="control-label mb-1">Attached Bathrooms</label><input type="text" id="txtbathrooms" class="form-control" placeholder="0" disabled></div>
+    <div class="col-lg-2 col-md-4 mb-3"><label class="control-label mb-1">Proposed Floor</label><input type="text" id="txtFloor" class="form-control" placeholder="Floor" disabled></div>
+
+                    </div>  <hr />
+                    <h4 class="mb-3 text-primary font-weight-bold " style="text-transform: none !important;">Asset Details</h4>
+
+                    <div class="row form-group" style="padding-top:18px;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card" id="maincard" style="display:none;">
+                                <div class="card-body" style="background-color:#fff !important;">
+                                    <div class="table-responsive">
+                                        <div id="divagreementdetailstable">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+
+                <div class="text-right" id="confirmbutton" style="padding-top:15px;">
+
+                    <button type="button" class="btn action-btn btn-confirm" id="BtnApprove">CONFIRM</button>
+                    <button type="button" class="btn action-btn btn-deny" id="btnReject">REJECT</button>
+                    <button type="button" class="btn action-btn btn-exit" id="btn_exit">EXIT</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        border-top: 1px solid #eee;
+    }
+
+    /* Container styling */
+    .button-container {
+        text-align: right;
+        padding: 15px;
+        background-color: #f8f9fa; /* Optional: light background to see button contrast */
+    }
+
+    /* Base button style */
+    .action-btn {
+        width: 100px; /* Increased slightly for better text fit */
+        margin-left: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        border-radius: 4px;
+        padding: 8px 0;
+        transition: all 0.2s ease;
+        border: none;
+        text-transform: uppercase;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+        /* Hover & Active Effects */
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .action-btn:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+    /* Specific Color Palette */
+    .btn-confirm {
+        background-color: #28a745;
+        color: white;
+    }
+
+
+
+    .btn-deny {
+        background-color: #e74c3c; /* A softer, modern red */
+        color: white;
+    }
+
+    .btn-exit {
+        background-color: #6c757d;
+        color: white;
+    }
+
+</style>
+
+@section Scripts {
+
+    <script src="~/clientapp/hostelopening/hostelapproval.js"></script>
+}
+
+

@@ -135,5 +135,52 @@ namespace MFWEBAPP.Controllers
             return View();
         }
 
+        [HttpGet("AddNewBranchHostel")]
+        public IActionResult AddNewBranchHostel()
+        {
+            return View();
+        }
+
+        [HttpGet("HostelApproval")]
+        public IActionResult HostelApproval()
+        {
+            return View();
+        }
+
+        [HttpGet("RecommendNewHostel")]
+        public IActionResult RecommendNewHostel()
+        {
+            return View();
+        }
+
+        [HttpGet("Hostel_AddNewAgreement")]
+        public IActionResult Hostel_AddNewAgreement()
+        {
+            return View();
+        }
+
+        [HttpGet("Hostel_renew_agre_recom")]
+        public IActionResult Hostel_renew_agre_recom()
+        {
+            return View();
+        }
+
+        [HttpGet("Hostel_renew_agre_aprv")]
+        public IActionResult Hostel_renew_agre_aprv()
+        {
+            return View();
+        }
+
+        [HttpGet("Agreement_upload_hostel")]
+        public IActionResult Agreement_upload_hostel()
+        {
+            return View();
+        }
+
+        [HttpGet("RenewHostelAgreement")]
+        public IActionResult RenewHostelAgreement()
+        {
+            return View();
+        }
     }
 }
