@@ -193,7 +193,7 @@ var _Add_hostel = {
 
                 jQuery("#branch_id").empty();
 
-                jQuery("#branch_id").append(jQuery("<option></option>").val("0").text("--Select Branch--"));
+                jQuery("#branch_id").append(jQuery("<option></option>").val("-1").text("--Select Branch--"));
                 jQuery.each(response.data.queryResult.QueryResult, function (i, val) {
                     jQuery("#branch_id").append(jQuery("<option></option>").val(val.Param1).text(val.Param2));
 
@@ -202,14 +202,14 @@ var _Add_hostel = {
             }
             else {
                 jQuery("#branch_id").empty();
-                jQuery("#branch_id").append(jQuery("<option></option>").val("0").text("--Select Branch --"));
+                jQuery("#branch_id").append(jQuery("<option></option>").val("-1").text("--Select Branch --"));
             }
             // jQuery('.page-loader-wrapper').hide();
         }
         else {
 
             jQuery("#branch_id").empty();
-            jQuery("#branch_id").append(jQuery("<option></option>").val("0").text("--Select Branch --"));
+            jQuery("#branch_id").append(jQuery("<option></option>").val("-1").text("--Select Branch --"));
         }
         //jQuery('.page-loader-wrapper').hide();
     },
@@ -1186,7 +1186,7 @@ jQuery('#BtnConfirm').click(function () {
         swal("Please Enter Hostel Name !!!....", "", "warning");
         return false;
     }
-    else if (branch == 0)
+    else if (branch == -1)
     {
         swal("Please Select Branch !!!....", "", "warning");
         return false;
